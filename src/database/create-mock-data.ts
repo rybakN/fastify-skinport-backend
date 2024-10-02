@@ -29,7 +29,8 @@ export const createMockUsers = async () => {
       console.log("Users table is not empty");
     }
   } catch (err) {
-    console.error("Error creating mock users:", err);
+    console.error("Error creating mock users:");
+    throw err;
   } finally {
     await pool.end();
   }

@@ -14,7 +14,8 @@ export const createUsersTable = async () => {
     await pool.query(createTableQuery);
     console.log("Users table created successfully");
   } catch (err) {
-    console.error("Error creating users table:", err);
+    console.error("Error creating users table:");
+    throw err;
   } finally {
     await pool.end();
   }
