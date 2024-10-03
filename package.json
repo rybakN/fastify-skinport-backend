@@ -1,0 +1,31 @@
+{
+  "name": "fastify-skinport-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "tsc && node dist/index.js",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "rybakN",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@types/node-cache": "^4.2.5",
+    "@types/pg": "^8.11.10",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.0.0",
+    "node-cache": "^5.1.2",
+    "pg": "^8.13.0"
+  }
+}
