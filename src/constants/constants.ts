@@ -9,3 +9,4 @@ export const dbPort = +process.env.DB_PORT! || 5432;
 export const dbName = process.env.DB_DATABASE;
 export const appPort = process.env.APP_PORT;
 export const appHost = process.env.APP_HOST;
+export const skinportApiUrl = process.env.SKINPORT_API_URL;

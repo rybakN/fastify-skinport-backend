@@ -1,4 +1,5 @@
 import { UsersRepository } from "./users-repository";
+import { PaymentError } from "./payment.error";
 
 export class UsersService {
   private readonly userRepo: UsersRepository;
@@ -13,7 +14,7 @@ export class UsersService {
     }
     const newBalance = user.balance - amountToDeduct;
     if (newBalance < 0) {
-      throw new Error("Insufficient balance");
+      throw new PaymentError(402, "Insufficient balance");
     }
     return this.userRepo.updateUserBalance(id, newBalance);
   }
