@@ -2,7 +2,7 @@
   "name": "fastify-skinport-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "build": "tsc -p tsconfig.json",
