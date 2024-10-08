@@ -1,4 +1,4 @@
-import { Pool, QueryResult, QueryResultRow } from "pg";
+import { Pool, PoolClient, QueryResult, QueryResultRow } from "pg";
 import { dbName } from "../constants/constants";
 import { createPool } from "./create-database";
 
@@ -17,11 +17,24 @@ export class DbService implements DbService {
 
     try {
       return await client.query<R>(query, params);
-    } catch (err) {
-      console.error("Database query error:", err);
-      throw err;
     } finally {
       client.release();
     }
+  }
+
+  public async beginTransaction(): Promise<PoolClient> {
+    const client = await this.db.connect();
+    await client.query("BEGIN");
+    return client;
+  }
+
+  public async commitTransaction(client: PoolClient): Promise<void> {
+    await client.query("COMMIT");
+    client.release();
+  }
+
+  public async rollbackTransaction(client: PoolClient): Promise<void> {
+    await client.query("ROLLBACK");
+    client.release();
   }
 }
